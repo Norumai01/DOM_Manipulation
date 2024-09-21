@@ -41,11 +41,15 @@ showHideButton.addEventListener('click', showHideHeading);
 
 // Problem #5: Automatically change the heading color every second (use setInterval).
 function cycleHeadidngColor() {
-    // Maybe use the array in the script instead of function.
-    let colors = ["red", "blue", "orange", "purple", "black"];
     const element = document.querySelector("h2");
-    for (color of colors) {
-        element.style.color = color;
-    }
+    const colors = ['red', 'blue', 'green', 'purple', 'orange'];
+    let colorIndex = 0;
+
+    setInterval(() => {
+        element.style.color = colors[colorIndex];
+        colorIndex = (colorIndex + 1) % colors.length
+    }, 1000);
 }
+
+cycleHeadidngColor();
 
